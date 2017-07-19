@@ -96,6 +96,10 @@
                         <label for="phone">Phone</label>
                         <input type="tel" class="form-control" id="phone" placeholder="New Phone Number" required>
                     </div>
+                    <div class="form-group">
+                        <label for="sql">SQL</label>
+                        <textarea class="form-control" id="sql" cols="40" rows="4" placeholder="sql"></textarea>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div id="message" class="alert alert-info" role="alert" style="display: none;">
@@ -107,8 +111,8 @@
                         <span class="sr-only">Error:</span>
                         <span id="errorMessage"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary" formaction="update" formmethod="post">Update Phone Number</button>
-                    <button type="button" class="btn btn-primary" onclick="test()">test</button>
+                    <!-- <button type="submit" class="btn btn-primary" formaction="update" formmethod="post">Update Phone Number</button> -->
+                    <button type="button" class="btn btn-primary" formaction="updateTest" formmethod="post">test</button>
                 </div>
             </div>
         </form>
