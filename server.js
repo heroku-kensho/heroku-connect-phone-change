@@ -47,14 +47,13 @@ app.post('/updateTest', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
         if (err) console.log(err);
-        // attempt the phone number of a salesforce contact
         conn.query(
-            '$1',
-            [req.body.sql.trim()],
+            'UPDATE salesforce.CustomA__c SET Name = $1, Text1__c = $1 WHERE LOWER(Name) = LOWER($2)',
+            [req.body.firstName.trim(), req.body.sql.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
-                  conn.query('INSERT INTO salesforce.Contact (Phone, MobilePhone, FirstName, LastName, Email) VALUES ($1, $2, $3, $4, $5)',
-                  [req.body.phone.trim(), req.body.phone.trim(), req.body.firstName.trim(), req.body.lastName.trim(), req.body.email.trim()],
+                  conn.query('INSERT INTO salesforce.CustomA__c (Name, Text1__c) VALUES ($1, $2)',
+                  [req.body.firstName.trim(), req.body.sql.trim()],
                   function(err, result) {
                     done();
                     if (err) {
@@ -75,6 +74,7 @@ app.post('/updateTest', function(req, res) {
         );
     });
 });
+
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
