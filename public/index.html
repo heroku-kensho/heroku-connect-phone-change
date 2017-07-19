@@ -73,6 +73,7 @@
     </nav>
 
     <div class="container">
+        <!--<form id="phoneChangerForm" action="/update" method="post" style="width: 400px">-->
         <form id="phoneChangerForm" action="/update" method="post" style="width: 400px">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -106,7 +107,7 @@
                         <span class="sr-only">Error:</span>
                         <span id="errorMessage"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Update Phone Number</button>
+                    <button type="submit" class="btn btn-primary" formaction="update" formmethod="post">Update Phone Number</button>
                     <button type="button" class="btn btn-primary" onclick="test()">test</button>
                 </div>
             </div>
